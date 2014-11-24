@@ -1,4 +1,5 @@
-# Counts the number of line and block comments in a srcML file
+# Input: Source code in XML
+# Output: Number of line and block comments
 
 import sys
 import StringIO
