@@ -2,7 +2,6 @@
 # Output: Number of line and block comments
 
 import sys
-import StringIO
 from lxml import etree
 
 string = ""
