@@ -11,3 +11,6 @@ def inputtree():
 
     tree = etree.fromstring(string)
     return tree
+
+def get_bare_tag(elem):
+    return elem.tag.rsplit('}', 1)[-1]

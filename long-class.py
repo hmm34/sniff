@@ -13,14 +13,16 @@ r = tree.xpath(query,
     namespaces={'src': 'http://www.sdml.info/srcML/src',
                 'cpp': 'http://www.sdml.info/srcML/cpp'})
 
-num = 0
 for node in r:
-    s = node.xpath('.//*[not(.//src:argument)]/src:expr[not(.//src:argument_list)]',
+    num = 0
+    s = node.xpath('.//src:expr[not(.//src:argument_list)]',
         namespaces={'src': 'http://www.sdml.info/srcML/src',
                     'cpp': 'http://www.sdml.info/srcML/cpp'})
     for child in s:
-        num += 1
-        print(etree.tostring(child))
+        p = child.getparent()
 
-print(len(r))
-print(num)
+        if util.get_bare_tag(p) != 'argument':
+            num += 1
+            print(etree.tostring(child))
+
+    print(num)
