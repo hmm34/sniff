@@ -1,3 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<unit xmlns="http://www.sdml.info/srcML/src" xmlns:cpp="http://www.sdml.info/srcML/cpp" revision="0.8.0" language="C" filename="input1.h"><comment>//Here's a comment</comment>
+<unit xmlns="http://www.sdml.info/srcML/src" revision="0.8.0">
+
+<unit xmlns:cpp="http://www.sdml.info/srcML/cpp" revision="0.8.0" language="C++" filename="../../testdata/project/shape.cpp" hash="80276a7fa410aef59a58e286453a865a5ecdacd3"><cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>"shape.h"</cpp:file></cpp:include>
+
+<constructor><name><name>Shape</name><operator>::</operator><name>Shape</name></name><parameter_list>()</parameter_list>
+<block>{
+
+}</block></constructor>
+
+<function><type><name>Shape</name><modifier>&amp;</modifier></type> <name><name>Shape</name><operator>::</operator><name>Shape</name></name><parameter_list>(<param><decl><type><specifier>const</specifier> <name>Shape</name><modifier>&amp;</modifier></type> <name>other</name></decl></param>)</parameter_list>
+<block>{
+
+}</block></function>
+
+<function type="operator"><type><name>Shape</name><modifier>&amp;</modifier></type> <name><name>Shape</name><operator>::</operator><name>operator<name>=</name></name></name><parameter_list>(<param><decl><type><specifier>const</specifier> <name>Shape</name><modifier>&amp;</modifier></type> <name>rhs</name></decl></param>)</parameter_list>
+<block>{
+
+}</block></function>
+
+<function><type><name><name>std</name><operator>::</operator><name>string</name></name></type> <name><name>Shape</name><operator>::</operator><name>name</name></name><parameter_list>()</parameter_list>
+<block>{
+	<return>return <expr><name>name</name></expr>;</return>
+}</block></function>
+</unit>
+
+<unit xmlns:cpp="http://www.sdml.info/srcML/cpp" revision="0.8.0" language="C" filename="../../testdata/project/shape.h" hash="5b3a41260f2f46cb6c612eb509846c6f75b40d19"><comment type="block">/*
+	Class on shapes
+*/</comment>
+
+<cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>&lt;iostream&gt;</cpp:file></cpp:include>
+
+<decl_stmt><decl><type><name>class</name></type> <name>Shape</name> <block>{
+<label><name>public</name>:</label>
+	<comment type="line">// Constructor</comment>
+	<expr_stmt><expr><call><name>Shape</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+
+	<comment type="line">// Copy</comment>
+	<function_decl><type><name>Shape</name><modifier>&amp;</modifier></type> <name>Shape</name><parameter_list>(<param><decl><type><specifier>const</specifier> <name>Shape</name> <modifier>&amp;</modifier></type><name>other</name></decl></param>)</parameter_list>;</function_decl>
+
+	<comment type="line">// Assignment</comment>
+	<decl_stmt><decl><type><name>Shape</name><modifier>&amp;</modifier></type> <name>operator</name><init>=<expr><operator>(</operator>const <name>Shape</name><operator>&amp;</operator> <name>rhs</name><operator>)</operator></expr></init></decl>;</decl_stmt>
+
+	<comment type="line">// Get name</comment>
+	<expr_stmt><expr><name>virtual</name> <name>std</name><operator>::</operator><name>string</name> <call><name>name</name><argument_list>()</argument_list></call> <operator>=</operator> <literal type="number">0</literal></expr>;</expr_stmt>
+
+<label><name>private</name>:</label>
+	<expr_stmt><expr><name>std</name><operator>::</operator><name>string</name> <name>name</name></expr>;</expr_stmt>
+}</block></decl></decl_stmt><empty_stmt>;</empty_stmt>
+</unit>
+
+<unit xmlns:cpp="http://www.sdml.info/srcML/cpp" revision="0.8.0" language="C++" filename="../../testdata/project/circle.cpp" hash="b0abe770661f3bddf25a57100ba39a3a6dc48420"><cpp:include>#<cpp:directive>include</cpp:directive> <cpp:file>"circle.h"</cpp:file></cpp:include>
+
+<constructor><name><name>Circle</name><operator>::</operator><name>Circle</name></name><parameter_list>()</parameter_list>
+<block>{
+	<expr_stmt><expr><name>name</name> <operator>=</operator> <literal type="string">"Circle"</literal></expr>;</expr_stmt>
+	<expr_stmt><expr><name>area</name> <operator>=</operator> <literal type="number">0</literal></expr>;</expr_stmt>
+}</block></constructor>
+
+<function><type><name>Circle</name><modifier>&amp;</modifier></type> <name><name>Circle</name><operator>::</operator><name>Circle</name></name><parameter_list>(<param><decl><type><specifier>const</specifier> <name>Circle</name><modifier>&amp;</modifier></type> <name>other</name></decl></param>)</parameter_list>
+<block>{
+
+}</block></function>
+
+<function type="operator"><type><name>Circle</name><modifier>*</modifier></type> <name><name>Circle</name><operator>::</operator><name>operator<name>=</name></name></name><parameter_list>(<param><decl><type><specifier>const</specifier> <name>Circle</name><modifier>&amp;</modifier></type> <name>other</name></decl></param>)</parameter_list>
+<block>{
+
+}</block></function>
+
+<function><type><name>void</name></type> <name><name>Circle</name><operator>::</operator><name>reallyLongParameters</name></name><parameter_list>(<param><decl><type><name>int</name></type> <name>a</name></decl></param>, <param><decl><type><name>int</name></type> <name>b</name></decl></param>, <param><decl><type><name>int</name></type> <name>c</name></decl></param>, <param><decl><type><name>int</name></type> <name>d</name></decl></param>, <param><decl><type><name>int</name></type> <name>e</name></decl></param>, <param><decl><type><name>int</name></type> <name>f</name></decl></param>, <param><decl><type><name>int</name></type> <name>g</name></decl></param>)</parameter_list>
+<block>{
+	
+}</block></function>
+</unit>
+
+<unit xmlns:cpp="http://www.sdml.info/srcML/cpp" revision="0.8.0" language="C" filename="../../testdata/project/circle.h" hash="8e04d6e89a0510dd499c20044cab88eb96e0e436"><comment type="block">/*
+	Circles are the best
+*/</comment>
+
+<comment type="line">// Woot inheritance</comment>
+<decl_stmt><decl><type><name>class</name></type> <name>Circle</name> <range>: <expr><name>public</name> <name>Shape</name>
+<block>{
+	<expr><call><name>Circle</name><argument_list>()</argument_list></call></expr>;
+	<expr><name>Circle</name><operator>&amp;</operator> <call><name>Circle</name><argument_list>(<argument><expr>const <name>Circle</name><operator>&amp;</operator> <name>other</name></expr></argument>)</argument_list></call></expr>;
+	<expr><name>Circle</name><operator>&amp;</operator> <name>operator</name><operator>=</operator><operator>(</operator>const <name>Circle</name><operator>&amp;</operator> <name>other</name><operator>)</operator></expr>;
+
+	<expr><name>void</name> <macro><name>reallyLongParameters</name><argument_list>(<argument>int a</argument>, <argument>int b</argument>, <argument>int c</argument>, <argument>int d</argument>, <argument>int e</argument>, <argument>int f</argument>, <argument>int g</argument>)</argument_list></macro></expr>;
+<expr><name>private</name><operator>:</operator>
+	<name>std</name><operator>::</operator><name>string</name> <name>name</name></expr>;
+	<expr><name>int</name> <name>area</name></expr>;
+	<expr><name>int</name> <name>var1</name></expr>;
+	<expr><name>int</name> <name>var2</name></expr>;
+	<expr><name>int</name> <name>var3</name></expr>;
+	<expr><name>int</name> <name>var4</name></expr>;
+	<expr><name>int</name> <name>var5</name></expr>;
+	<expr><name>int</name> <name>var6</name></expr>;
+	<expr><name>int</name> <name>var7</name></expr>;
+	<expr><name>int</name> <name>var8</name></expr>;
+	<expr><name>int</name> <name>var9</name></expr>;
+	<expr><name>int</name> <name>var10</name></expr>;
+	<expr><name>int</name> <name>var11</name></expr>;
+	<expr><name>int</name> <name>var12</name></expr>;
+	<expr><name>int</name> <name>var13</name></expr>;
+}</block></expr></range></decl></decl_stmt></unit>
+
 </unit>

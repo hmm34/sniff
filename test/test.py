@@ -8,4 +8,4 @@ pout = subprocess.Popen(prog, stdin=pin.stdout, stdout=subprocess.PIPE)
 
 out, err = pout.communicate()
 
-assert (out.rstrip('\n') == "1")
+assert (out.rstrip('\n') == "7")
