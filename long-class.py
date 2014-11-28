@@ -30,6 +30,6 @@ for node in r:
 
         if util.get_bare_tag(p) != 'argument':
             num += 1
-            print(etree.tostring(child))
 
-    print(num)
+    if num > n:
+        print(node.get('filename'))
