@@ -40,5 +40,5 @@ for node in r:
             namespaces={'src': 'http://www.sdml.info/srcML/src',
                         'cpp': 'http://www.sdml.info/srcML/cpp'})
 
-        info += ": " + (u[0])
+        info += ": " + (u[1])
         print(info)
