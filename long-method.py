@@ -7,9 +7,8 @@ from lxml import etree
 tree = util.inputtree()
 
 n = 200
-query = '//src:function | //src:constructor'
 
-r = tree.xpath(query,
+r = tree.xpath('//src:function | //src:constructor',
     namespaces={'src': 'http://www.sdml.info/srcML/src',
                 'cpp': 'http://www.sdml.info/srcML/cpp'})
 
