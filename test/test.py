@@ -7,9 +7,6 @@ def launch_test(program, expected_output):
 	out, err = pout.communicate()
 	assert(out.rstrip('\n') == expected_output)
 
-
-input = ["cat", "input.xml"]
-
 # test count-comments
 prog = ["python", "../count-comments.py"]
 expect = "7"
