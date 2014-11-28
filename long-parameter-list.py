@@ -17,5 +17,5 @@ r = tree.xpath(query,
 for node in r:
     s = node.xpath('(./src:name/src:name/text())[last()]',
         namespaces={'src': 'http://www.sdml.info/srcML/src',
-                'cpp': 'http://www.sdml.info/srcML/cpp'})
+                    'cpp': 'http://www.sdml.info/srcML/cpp'})
     print(s[0])
