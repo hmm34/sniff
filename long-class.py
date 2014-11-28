@@ -13,32 +13,22 @@ n = parser.parse_args().n
 
 tree = util.inputtree()
 
-query = "//*[src:decl_stmt/src:decl/src:type/src:name"
-query += "/text()[normalize-space(.)='class']]"
-
-r = tree.xpath(query,
+r = tree.xpath("//src:class",
     namespaces={'src': 'http://www.sdml.info/srcML/src',
                 'cpp': 'http://www.sdml.info/srcML/cpp'})
 
 for node in r:
-    num = 0
-    s = node.xpath('.//src:expr[not(.//src:argument_list)]',
+    s = node.xpath('.//src:decl_stmt',
         namespaces={'src': 'http://www.sdml.info/srcML/src',
                     'cpp': 'http://www.sdml.info/srcML/cpp'})
-    for child in s:
-        p = child.getparent()
-
-        if util.get_bare_tag(p) != 'argument':
-            num += 1
+    num = len(s) 
 
     if num > n:
-        info = node.get('filename')
+        p = node.getparent()
+        file_name = p.get('filename')
 
-        query = ".//src:decl_stmt/src:decl[src:type/src:name"
-        query += "/text()[normalize-space(.)='class']]/src:name/text()"
-        u = tree.xpath(query,
-            namespaces={'src': 'http://www.sdml.info/srcML/src',
-                        'cpp': 'http://www.sdml.info/srcML/cpp'})
+        class_name = node.xpath('./src:name/text()',
+             namespaces={'src': 'http://www.sdml.info/srcML/src',
+                         'cpp': 'http://www.sdml.info/srcML/cpp'})[0]
 
-        info += ": " + (u[1])
-        print(info)
+        print(file_name + ": " + class_name)
