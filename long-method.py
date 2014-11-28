@@ -19,9 +19,13 @@ r = tree.xpath('//src:function | //src:constructor',
                 'cpp': 'http://www.sdml.info/srcML/cpp'})
 
 for node in r:
+    p = node.getparent()
+    info = p.get('filename')
+
     string = etree.tostring(node)
     if string.count('\n') > n:
         s = node.xpath('(./src:name/src:name/text())[last()]',
             namespaces={'src': 'http://www.sdml.info/srcML/src',
                         'cpp': 'http://www.sdml.info/srcML/cpp'})
-        print(s[0])
+        info += ": " + s[0]
+        print(info)

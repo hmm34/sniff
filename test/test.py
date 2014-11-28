@@ -19,8 +19,7 @@ prog = ["python", "../long-class.py", "5"]
 out, err = launch_test(prog)
 assert(out.rstrip('\n') == "../../testdata/project/circle.h: Circle")
 
-# test method with 4 or more lines
+# test method with 5 or more lines
 prog = ["python", "../long-method.py", "5"]
 out, err = launch_test(prog)
 assert(out.rstrip('\n') == "../../testdata/project/circle.cpp: Circle")
-print(out)
