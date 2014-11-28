@@ -32,4 +32,13 @@ for node in r:
             num += 1
 
     if num > n:
-        print(node.get('filename'))
+        info = node.get('filename')
+
+        query = ".//src:decl_stmt/src:decl[src:type/src:name"
+        query += "/text()[normalize-space(.)='class']]/src:name/text()"
+        u = tree.xpath(query,
+            namespaces={'src': 'http://www.sdml.info/srcML/src',
+                        'cpp': 'http://www.sdml.info/srcML/cpp'})
+
+        info += ": " + (u[0])
+        print(info)
