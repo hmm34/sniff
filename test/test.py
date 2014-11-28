@@ -23,3 +23,8 @@ assert(out.rstrip('\n') == "../../testdata/project/circle.h: Circle")
 prog = ["python", "../long-method.py", "5"]
 out, err = launch_test(prog)
 assert(out.rstrip('\n') == "../../testdata/project/circle.cpp: Circle")
+
+# test method with 3 or more parameters
+prog = ["python", "../long-parameter-list.py", "3"]
+out, err = launch_test(prog)
+assert(out.rstrip('\n') == "../../testdata/project/circle.cpp: reallyLongParameters")
