@@ -2,7 +2,6 @@
 # Output: Function names matching a parameter list > n
 
 import util
-from lxml import etree
 
 tree = util.inputtree()
 
