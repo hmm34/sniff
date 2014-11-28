@@ -13,9 +13,9 @@ r = tree.xpath('//src:function | //src:constructor',
                 'cpp': 'http://www.sdml.info/srcML/cpp'})
 
 for node in r:
-	string = etree.tostring(node)
-	if string.count('\n') > n:
-		s = node.xpath('(./src:name/src:name/text())[last()]',
+    string = etree.tostring(node)
+    if string.count('\n') > n:
+        s = node.xpath('(./src:name/src:name/text())[last()]',
             namespaces={'src': 'http://www.sdml.info/srcML/src',
                         'cpp': 'http://www.sdml.info/srcML/cpp'})
-		print(s[0])
+        print(s[0])
