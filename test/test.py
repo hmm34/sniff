@@ -26,3 +26,9 @@ launch_test(prog, expect)
 prog = ["python", "../long-parameter-list.py", "3"]
 expect = "../../testdata/project/circle.cpp: reallyLongParameters"
 launch_test(prog, expect)
+
+# test classes with 3 or more primitive fields
+print("-------")
+prog = ["python", "../primitive-fields.py", "3"]
+expect = " "
+launch_test(prog, expect)
