@@ -14,21 +14,21 @@ launch_test(prog, expect)
 
 # test class with 5 or more member variables
 prog = ["python", "../long-class.py", "5"]
-expect = "../../testdata/project/circle.h: Circle"
+expect = "project/circle.hpp: Circle"
 launch_test(prog, expect)
 
 # test method with 5 or more lines
 prog = ["python", "../long-method.py", "5"]
-expect = "../../testdata/project/circle.cpp: Circle"
+expect = "project/circle.cpp: Circle"
 launch_test(prog, expect)
 
 # test method with 3 or more parameters
 prog = ["python", "../long-parameter-list.py", "3"]
-expect = "../../testdata/project/circle.cpp: reallyLongParameters"
+expect = "project/circle.cpp: reallyLongParameters"
 launch_test(prog, expect)
 
 # test classes with 3 or more primitive fields
 print("-------")
-prog = ["python", "../primitive-fields.py", "3"]
+prog = ["python", "../primitive-fields.py", "10"]
 expect = " "
 launch_test(prog, expect)
