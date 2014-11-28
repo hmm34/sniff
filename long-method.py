@@ -1,5 +1,6 @@
 # Input: Source code in XML
-# Output: Function names whose contents exceed n lines
+# Output: Function names whose contents exceed n lines. Content includes
+#   the line on which the function is defined, and lines with brackets.
 
 import argparse
 import util
