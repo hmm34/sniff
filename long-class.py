@@ -6,9 +6,6 @@ from lxml import etree
 
 tree = util.inputtree()
 
-#<decl_stmt><decl><type><name>
-#/DocText/WithQuads/Page/Word[text()='July' and Quad/P1/@X > 90]
-#[text()[normalize-space(.)='July']
 query = "//*[src:decl_stmt/src:decl/src:type/src:name"
 query += "/text()[normalize-space(.)='class']]"
 
