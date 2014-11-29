@@ -36,9 +36,6 @@ for node in r:
                     'cpp': 'http://www.sdml.info/srcML/cpp'})
 
     num = len(s)
-    primitives = ""
-    for match in s:
-        primitives += (etree.tostring(match, method="text").rstrip(' ').rstrip('\t'))
 
     # exceeds threshold
     if num > n:
@@ -47,5 +44,4 @@ for node in r:
             namespaces={'src': 'http://www.sdml.info/srcML/src',
                         'cpp': 'http://www.sdml.info/srcML/cpp'})
         info = file_name + ": " + class_name[0]
-        info += '\n' + primitives
         print(info)
