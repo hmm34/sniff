@@ -3,6 +3,7 @@
 
 import argparse
 import util
+from lxml import etree
 
 parser = argparse.ArgumentParser(description = 'Sniff out code smells')
 parser.add_argument('n',
@@ -12,8 +13,8 @@ n = parser.parse_args().n
 
 tree = util.inputtree()
 
-predicate = '[count(src:parameter_list/src:param) > ' + `n` + ' ]'
-query = '//src:function' + predicate + ' | //src:constructor' + predicate
+predicate = '[count(src:parameter_list/src:parameter) > ' + `n` + ' ]'
+query = '//src:function_decl' + predicate + ' | //src:constructor_decl' + predicate
 
 r = tree.xpath(query,
     namespaces={'src': 'http://www.sdml.info/srcML/src',
@@ -21,9 +22,12 @@ r = tree.xpath(query,
 
 for node in r:
     p = node.getparent()
+    while p.getparent().getparent() is not None:
+        p = p.getparent()
+
     info = p.get('filename')
 
-    s = node.xpath('(./src:name/src:name/text())[last()]',
+    s = node.xpath('./src:name/text()',
         namespaces={'src': 'http://www.sdml.info/srcML/src',
                     'cpp': 'http://www.sdml.info/srcML/cpp'})
     info += ": " + s[0]
