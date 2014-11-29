@@ -45,3 +45,8 @@ expect += "int var11;\n"
 expect += "int var12;\n"
 expect += "int var13;"
 launch_test(prog, expect)
+
+# test method with 3 or more primitive parameters
+prog = ["python", "../primitive-parameters.py", "3"]
+expect = "project/circle.hpp: reallyLongParameters"
+launch_test(prog, expect)
