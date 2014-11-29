@@ -14,3 +14,8 @@ def inputtree():
 
 def get_bare_tag(elem):
     return elem.tag.rsplit('}', 1)[-1]
+
+def primitives():
+	return ['char','signed char','short int','int','long int',
+        'unsigned char','unsigned short int','unsigned int','unsigned long int',
+        'wchar_t','bool','float','double','long double','void']

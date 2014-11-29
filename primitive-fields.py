@@ -23,9 +23,7 @@ for node in r:
 
     # only count primitive fields
     core_query = ".//src:decl_stmt[src:decl/src:type/src:name/text()='"
-    types = ['char','signed char','short int','int','long int',
-        'unsigned char','unsigned short int','unsigned int','unsigned long int',
-        'wchar_t','bool','float','double','long double','void']
+    types = util.primitives()
 
     query = ""
     for i in range(0, len(types)):
