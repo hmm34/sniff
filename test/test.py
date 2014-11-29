@@ -30,7 +30,6 @@ launch_test(prog, expect)
 # test classes with 3 or more primitive fields
 prog = ["python", "../primitive-fields.py", "10"]
 expect = "project/circle.hpp: Circle\n"
-expect += "std::string name;\n"
 expect += "int area;\n"
 expect += "int var1;\n"
 expect += "int var2;\n"

@@ -21,8 +21,19 @@ r = tree.xpath("//src:class",
 for node in r:
     num = 0
 
-    # only use fields
-    s = node.xpath('.//src:decl_stmt',
+    # only count primitive fields
+    core_query = ".//src:decl_stmt[src:decl/src:type/src:name/text()='"
+    types = ['char','signed char','short int','int','long int',
+        'unsigned char','unsigned short int','unsigned int','unsigned long int',
+        'wchar_t','bool','float','double','long double','void']
+
+    query = ""
+    for i in range(0, len(types)):
+        query += core_query + types[i] + "']"
+        if i != len(types) - 1:
+            query += " | "
+
+    s = node.xpath(query,
         namespaces={'src': 'http://www.sdml.info/srcML/src',
                     'cpp': 'http://www.sdml.info/srcML/cpp'})
 
