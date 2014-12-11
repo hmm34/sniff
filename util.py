@@ -21,5 +21,10 @@ def primitives():
         'unsigned char','unsigned short int','unsigned int','unsigned long int',
         'wchar_t','bool','float','double','long double','void']
 
-def parser():
-    return argparse.ArgumentParser(description = 'Sniff out code smells')
+def parser(text):
+    parser = argparse.ArgumentParser(description = 'Sniff out code smells')
+    parser.add_argument('n',
+                    help = text,
+                    type = int)
+    return parser
+    

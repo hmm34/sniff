@@ -6,10 +6,7 @@ import argparse
 import util
 from lxml import etree
 
-parser = util.parser()
-parser.add_argument('n',
-                    help = "threshold line count for long methods",
-                    type = int)
+parser = util.parser("threshold line count for long methods")
 n = parser.parse_args().n
 
 tree = util.inputtree()

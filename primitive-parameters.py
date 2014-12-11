@@ -5,10 +5,7 @@ import argparse
 import util
 from lxml import etree
 
-parser = util.parser()
-parser.add_argument('n',
-                    help = "threshold primitive parameter count for methods",
-                    type = int)
+parser = util.parser("threshold primitive parameter count for methods")
 n = parser.parse_args().n
 
 tree = util.inputtree()

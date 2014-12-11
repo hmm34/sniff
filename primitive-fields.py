@@ -5,10 +5,7 @@ import argparse
 import util
 from lxml import etree
 
-parser = util.parser()
-parser.add_argument('n',
-                    help = "threshold primitive field count for classes",
-                    type = int)
+parser = util.parser("threshold primitive field count for classes")
 n = parser.parse_args().n
 
 tree = util.inputtree()
