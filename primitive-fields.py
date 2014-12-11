@@ -12,8 +12,7 @@ tree = util.inputtree()
 
 # get classes
 r = tree.xpath("//src:class",
-    namespaces={'src': 'http://www.sdml.info/srcML/src',
-                'cpp': 'http://www.sdml.info/srcML/cpp'})
+    namespaces=util.srcml_ns())
 
 for node in r:
     num = 0
@@ -29,8 +28,7 @@ for node in r:
             query += " | "
 
     s = node.xpath(query,
-        namespaces={'src': 'http://www.sdml.info/srcML/src',
-                    'cpp': 'http://www.sdml.info/srcML/cpp'})
+        namespaces=util.srcml_ns())
 
     num = len(s)
 
@@ -39,7 +37,6 @@ for node in r:
         file_name = filename(node)
 
         class_name = node.xpath('./src:name/text()',
-            namespaces={'src': 'http://www.sdml.info/srcML/src',
-                        'cpp': 'http://www.sdml.info/srcML/cpp'})
+            namespaces=util.srcml_ns())
         info = file_name + ": " + class_name[0]
         print(info)

@@ -14,14 +14,12 @@ predicate = '[count(src:parameter_list/src:parameter) > ' + `n` + ' ]'
 query = '//src:function_decl' + predicate + ' | //src:constructor_decl' + predicate
 
 r = tree.xpath(query,
-    namespaces={'src': 'http://www.sdml.info/srcML/src',
-                'cpp': 'http://www.sdml.info/srcML/cpp'})
+    namespaces=util.srcml_ns())
 
 for node in r:
     info = filename(node)
 
     s = node.xpath('./src:name/text()',
-        namespaces={'src': 'http://www.sdml.info/srcML/src',
-                    'cpp': 'http://www.sdml.info/srcML/cpp'})
+        namespaces=util.srcml_ns())
     info += ": " + s[0]
     print(info)

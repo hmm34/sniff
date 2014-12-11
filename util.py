@@ -34,3 +34,8 @@ def filename(node):
         p = p.getparent()
 
     return p.get('filename')
+
+def srcml_ns():
+    return {'src': 'http://www.sdml.info/srcML/src',
+            'cpp': 'http://www.sdml.info/srcML/cpp'}
+
