@@ -20,6 +20,8 @@ r = tree.xpath('//src:function | //src:constructor',
 
 for node in r:
     p = node.getparent()
+    while p.getparent().getparent() is not None:
+        p = p.getparent()
     info = p.get('filename')
 
     string = etree.tostring(node)
@@ -27,5 +29,12 @@ for node in r:
         s = node.xpath('(./src:name/src:name/text())[last()]',
             namespaces={'src': 'http://www.sdml.info/srcML/src',
                         'cpp': 'http://www.sdml.info/srcML/cpp'})
+
+        # In case a static function was encountered
+        if (len(s) <= 0):
+            s = node.xpath('(./src:name/text())[last()]',
+            namespaces={'src': 'http://www.sdml.info/srcML/src',
+                        'cpp': 'http://www.sdml.info/srcML/cpp'})
+
         info += ": " + s[0]
         print(info)
