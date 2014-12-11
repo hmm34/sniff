@@ -5,7 +5,7 @@ import argparse
 import util
 from lxml import etree
 
-parser = argparse.ArgumentParser(description = 'Sniff out code smells')
+parser = util.parser()
 parser.add_argument('n',
                     help = "threshold field count for a class",
                     type = int)
@@ -25,6 +25,8 @@ for node in r:
 
     if num > n:
         p = node.getparent()
+        while p.getparent().getparent() is not None:
+            p = p.getparent()
         file_name = p.get('filename')
 
         class_name = node.xpath('./src:name/text()',

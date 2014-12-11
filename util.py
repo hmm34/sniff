@@ -1,5 +1,6 @@
 # Common utilities
 
+import argparse
 import sys
 from lxml import etree
 
@@ -19,3 +20,6 @@ def primitives():
 	return ['char','signed char','short int','int','long int',
         'unsigned char','unsigned short int','unsigned int','unsigned long int',
         'wchar_t','bool','float','double','long double','void']
+
+def parser():
+    return argparse.ArgumentParser(description = 'Sniff out code smells')

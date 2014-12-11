@@ -5,7 +5,7 @@ import argparse
 import util
 from lxml import etree
 
-parser = argparse.ArgumentParser(description = 'Sniff out code smells')
+parser = util.parser()
 parser.add_argument('n',
                     help = "threshold primitive field count for classes",
                     type = int)
