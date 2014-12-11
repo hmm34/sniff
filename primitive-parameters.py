@@ -17,7 +17,7 @@ r = tree.xpath(query,
     namespaces=util.srcml_ns())
 
 for node in r:
-    info = filename(node)
+    info = util.filename(node)
 
     s = node.xpath('./src:name/text()',
         namespaces=util.srcml_ns())

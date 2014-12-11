@@ -34,7 +34,7 @@ for node in r:
 
     # exceeds threshold
     if num > n:
-        file_name = filename(node)
+        file_name = util.filename(node)
 
         class_name = node.xpath('./src:name/text()',
             namespaces=util.srcml_ns())

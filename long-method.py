@@ -17,7 +17,7 @@ r = tree.xpath('//src:function | //src:constructor',
 for node in r:
     string = etree.tostring(node)
     if string.count('\n') > n:
-        info = filename(node)
+        info = util.filename(node)
 
         s = node.xpath('(./src:name/src:name/text())[last()]',
             namespaces=util.srcml_ns())
