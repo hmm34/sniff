@@ -36,10 +36,7 @@ for node in r:
 
     # exceeds threshold
     if num > n:
-        p = node.getparent()
-        while p.getparent().getparent() is not None:
-            p = p.getparent()
-        file_name = p.get('filename')
+        file_name = filename(node)
 
         class_name = node.xpath('./src:name/text()',
             namespaces={'src': 'http://www.sdml.info/srcML/src',

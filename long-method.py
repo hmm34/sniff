@@ -18,10 +18,7 @@ r = tree.xpath('//src:function | //src:constructor',
 for node in r:
     string = etree.tostring(node)
     if string.count('\n') > n:
-        p = node.getparent()
-        while p.getparent().getparent() is not None:
-            p = p.getparent()
-        info = p.get('filename')
+        info = filename(node)
 
         s = node.xpath('(./src:name/src:name/text())[last()]',
             namespaces={'src': 'http://www.sdml.info/srcML/src',

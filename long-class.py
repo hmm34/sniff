@@ -21,10 +21,7 @@ for node in r:
     num = len(s) 
 
     if num > n:
-        p = node.getparent()
-        while p.getparent().getparent() is not None:
-            p = p.getparent()
-        file_name = p.get('filename')
+        file_name = util.filename(node)
 
         class_name = node.xpath('./src:name/text()',
              namespaces={'src': 'http://www.sdml.info/srcML/src',

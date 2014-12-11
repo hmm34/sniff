@@ -18,11 +18,7 @@ r = tree.xpath(query,
                 'cpp': 'http://www.sdml.info/srcML/cpp'})
 
 for node in r:
-    p = node.getparent()
-    while p.getparent().getparent() is not None:
-        p = p.getparent()
-
-    info = p.get('filename')
+    info = filename(node)
 
     s = node.xpath('./src:name/text()',
         namespaces={'src': 'http://www.sdml.info/srcML/src',

@@ -27,4 +27,10 @@ def parser(text):
                     help = text,
                     type = int)
     return parser
-    
+
+def filename(node):
+    p = node.getparent()
+    while p.getparent().getparent() is not None:
+        p = p.getparent()
+
+    return p.get('filename')
